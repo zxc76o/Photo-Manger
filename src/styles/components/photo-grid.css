@@ -1,0 +1,81 @@
+/**
+ * Photo Grid Component Styles
+ */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--spacing-sm, 8px);
+  padding: var(--spacing-md, 12px);
+}
+
+.photo-grid__item {
+  display: contents;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xs, 4px);
+    padding: var(--spacing-sm, 8px);
+  }
+}
+
+@media (min-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--spacing-md, 12px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--spacing-md, 16px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Loading state */
+.photo-grid--loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Selection mode toolbar */
+.photo-grid-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm, 8px) var(--spacing-md, 12px);
+  background: var(--color-surface, #f5f5f5);
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+}
+
+.photo-grid-toolbar__count {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-text-secondary, #666);
+}
+
+.photo-grid-toolbar__actions {
+  display: flex;
+  gap: var(--spacing-sm, 8px);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .photo-grid-toolbar {
+    background: var(--color-surface-dark, #2a2a2a);
+    border-color: var(--color-border-dark, #444);
+  }
+  
+  .photo-grid-toolbar__count {
+    color: var(--color-text-secondary-dark, #aaa);
+  }
+}

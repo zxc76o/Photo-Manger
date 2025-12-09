@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Organize your photos into albums grouped by date with drag and drop support" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Photo Album Organizer</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <header class="app-header" role="banner">
+        <button class="header__back hidden" aria-label="Go back to albums" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <h1 class="header__title">Photo Albums</h1>
+        <nav class="header-actions" aria-label="Primary actions">
+          <!-- Actions will be injected by JavaScript -->
+        </nav>
+      </header>
+      
+      <!-- Main Content -->
+      <main class="main-content" role="main" aria-label="Album gallery">
+        <!-- Content will be injected by JavaScript -->
+      </main>
+      
+      <!-- Loading indicator (hidden by default) -->
+      <div id="loading-overlay" class="hidden" role="status" aria-live="polite">
+        <span class="sr-only">Loading...</span>
+      </div>
+      
+      <!-- Modal container for dialogs -->
+      <div id="modal-container" role="dialog" aria-modal="true" class="hidden"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

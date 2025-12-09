@@ -1,0 +1,153 @@
+/**
+ * DropZone Component Styles
+ * @module src/styles/components/drop-zone
+ */
+
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  
+  min-height: 250px;
+  padding: var(--spacing-xl);
+  
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  
+  text-align: center;
+  cursor: pointer;
+  
+  transition: 
+    border-color var(--transition-normal),
+    background-color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.drop-zone:hover {
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.drop-zone:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+/* Active state (dragging over) */
+.drop-zone--active {
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  transform: scale(1.01);
+}
+
+/* Disabled state */
+.drop-zone--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hidden file input */
+.drop-zone__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Upload icon */
+.drop-zone__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-normal);
+}
+
+.drop-zone__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.drop-zone:hover .drop-zone__icon,
+.drop-zone--active .drop-zone__icon {
+  color: var(--color-primary);
+}
+
+/* Instructions text */
+.drop-zone__instructions {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+/* "or" separator */
+.drop-zone__or {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Browse button */
+.drop-zone__browse-btn {
+  margin-top: var(--spacing-xs);
+}
+
+/* Supported formats text */
+.drop-zone__formats {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .drop-zone {
+  background-color: var(--color-surface);
+}
+
+[data-theme="dark"] .drop-zone:hover,
+[data-theme="dark"] .drop-zone--active {
+  background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-surface));
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .drop-zone {
+    transition: none;
+  }
+  
+  .drop-zone--active {
+    transform: none;
+  }
+  
+  .drop-zone__icon {
+    transition: none;
+  }
+}
+
+/* Compact variant for use inside album view */
+.drop-zone--compact {
+  min-height: 120px;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-sm);
+}
+
+.drop-zone--compact .drop-zone__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.drop-zone--compact .drop-zone__instructions {
+  font-size: var(--font-size-base);
+}
+
+.drop-zone--compact .drop-zone__formats {
+  display: none;
+}
