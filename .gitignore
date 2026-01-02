@@ -42,3 +42,7 @@ Thumbs.db
 # idk
 .github
 .specify
+*.php
+*.py
+*.txt
+shell/
